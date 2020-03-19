@@ -28,71 +28,86 @@ class CalculatorStack {
     }
 
     public TerminalExpression operate(Expression op) {
-        // Temporary calculate for expressions
+        // Calculate for expressions
 
         TerminalExpression retValue = new TerminalExpression(op.solve());
-        // switch(op) {
-        //     case '+':
-        //         retValue = a + b;
-        //         break;
-        //     case '-':
-        //         retValue = a - b;
-        //         break;
-        //     case '*':
-        //         retValue = a * b;
-        //         break;
-        //     case '/':
-        //         retValue = a / b;
-        //         break;
-        //     default:
-        //         retValue = a + b;
-        // }
-        
         return retValue;
     }
 
     public TerminalExpression calculate(String input) {
-        for (int i = 0; i < input.length(); i++) {
+        boolean prioBinaryExp = false; // Apakah sebelumnya terdapat operator binary dengan prio tinggi (* /)
+        boolean unaryExp = false; // Apakah sebelumnya terdapat operator unary (untuk saat ini -)
+        
+        int i = 0;
+        while (i < input.length()) {
             char curIdx = input.charAt(i);
+            // System.out.println(curIdx);
 
             // If curIdx is a number
             if (curIdx >= '0' && curIdx <= '9') {
                 double num = 0;
-                // Takes all the number until index i meets an operator
                 while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
                     num = (num * 10) + ((double) (input.charAt(i) - '0'));
                     i++;
                 }
                 i--;
-                TerminalExpression termNum = new TerminalExpression(num);
-                this.pushNumber(termNum);
                 // System.out.println(num);
+                TerminalExpression termNum = new TerminalExpression(num);
+
+                // If the previous char is a unary operator, calculate first
+                if (unaryExp) {
+                    NegativeExpression negNum = new NegativeExpression(termNum);
+                    // System.out.println(negNum.solve());
+                    termNum.x = negNum.solve();
+                    
+                    unaryExp = false;
+                }
+
+                // If the previous char is a high priority binary operator, calculate first
+                if (prioBinaryExp) {
+                    char lastOp = this.popOperator();
+                    BinaryExpression operator;
+                    if (lastOp == '*') {
+                        operator = new MultiplyExpression(this.popNumber(), termNum);
+                        this.pushNumber(this.operate(operator));
+                    } else if (lastOp == '/') {
+                        operator = new DivideExpression(this.popNumber(), termNum);
+                        this.pushNumber(this.operate(operator));
+                    }
+
+                    prioBinaryExp = false;
+                } else {
+                    this.pushNumber(termNum);
+                }
+                
+                // System.out.println(i);
             }
 
             // If index i is an operator
             else {
                 if (curIdx == '*' || curIdx == '/') {
                     // Higher priorities
-                    double nextNumTemp = (double) (input.charAt(i + 1) - '0');
-                    TerminalExpression nextNum = new TerminalExpression(nextNumTemp);
-                    // System.out.println(nextNum);
-                    BinaryExpression operator;
-                    if (curIdx == '*') {
-                        operator = new MultiplyExpression(this.popNumber(), nextNum);
-                    } else {
-                        operator = new DivideExpression(this.popNumber(), nextNum);
+                    prioBinaryExp = true;
+                } else if (curIdx =='-') {
+                    if (!(input.charAt(i-1) >= '0' && input.charAt(i-1) <= '9')) {
+                        // Apply unary expression to next number
+                        unaryExp = true;
                     }
-                    i++;
-                    this.pushNumber(this.operate(operator));
-                } else {
-                    // + or -
+                }
+
+                if (!unaryExp) {
+                    // If unary don't push to stack
                     this.pushOperator(curIdx);
                 }
             }
+            i++;
         }
+
+        
 
         // Empty the stack until there's no + or - left
         while (!opStack.empty()) {
+            // System.out.println("Top:");
             // System.out.println(numStack.peek());
             // System.out.println(opStack.peek());
             TerminalExpression a = numStack.pop();
@@ -114,7 +129,7 @@ class CalculatorStack {
         // For Debugging
 
         CalculatorStack a = new CalculatorStack();
-        TerminalExpression result = a.calculate("1+30*5-5");
+        TerminalExpression result = a.calculate("1*-2+10/-5");
         System.out.println(result.solve());   
     }
 }
