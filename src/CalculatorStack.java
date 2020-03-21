@@ -42,9 +42,10 @@ class CalculatorStack {
         int i = 0;
         boolean adaakar = false;
         boolean titik = false;
+        boolean negative = false;
         while (i < input.length()) {
             char curIdx = input.charAt(i);
-            // System.out.println(curIdx);
+            System.out.println(curIdx);
 
             // If curIdx is a number
             if (curIdx >= '0' && curIdx <= '9') {
@@ -53,26 +54,14 @@ class CalculatorStack {
                     num = (num * 10) + ((double) (input.charAt(i) - '0'));
                     i++;
                 }
-                i--;
-                // System.out.println(num);
                 TerminalExpression termNum = new TerminalExpression(num);
-
-                // If the previous char is a unary operator, calculate first
-                if (unaryExp) {
-                    NegativeExpression negNum = new NegativeExpression(termNum);
-                    // System.out.println(negNum.solve());
-                    termNum.x = negNum.solve();
-                    
-                    unaryExp = false;
-                }
-
-                // If the previous char is a high priority binary operator, calculate first
+                
                 if (titik) {
                     //System.out.println("ini i "+i);
                     //i-=1;
                     //System.out.println("masuk1");
                     TerminalExpression cur = this.popNumber();
-                    //System.out.println(cur.solve());
+                    System.out.println(cur.solve());
                     double num2 = num;
                     int panjang=1;
                     // baca angka dibelakang koma
@@ -87,35 +76,61 @@ class CalculatorStack {
                     TerminalExpression hasil = new TerminalExpression(koma);
                     System.out.println("ini hasil" + hasil.solve());
                     this.pushNumber(hasil);
-                    this.popOperator();
+                    // this.popOperator();
                     titik = false;
-                } else if (adaakar) {
-                    SquareRootExpression result = new SquareRootExpression(termNum);
-                    while(!opStack.empty() && opStack.peek() == 'V'){
-                        termNum.x = result.solve();
-                        result = new SquareRootExpression(termNum);
-                        this.popOperator();
-                    }
-                    adaakar = false;
+                } else {
                     this.pushNumber(termNum);
                 }
-                else if (prioBinaryExp) {
+
+                if (i < input.length() && input.charAt(i) == '.') {
+                    i++;
+                    titik = true;
+                    continue;
+                }
+
+                i--;
+
+                if (unaryExp) {
+                    if (adaakar) {
+                        // System.out.println("masuk akar");
+                        SquareRootExpression result = new SquareRootExpression(this.popNumber());
+                        while(!opStack.empty() && opStack.peek() == 'V'){
+                            termNum.x = result.solve();
+                            result = new SquareRootExpression(termNum);
+                            this.popOperator();
+                        }
+                        adaakar = false;
+                        this.pushNumber(termNum);
+                        // System.out.println("hasil akar: " + termNum.solve());
+                    }
+
+                    if (negative) {
+                        // System.out.println("masuk negative");
+                        NegativeExpression negNum = new NegativeExpression(this.popNumber());
+                        termNum.x = negNum.solve();
+                        this.pushNumber(termNum);
+
+                        this.popOperator();
+                        negative = false;
+                    }
+
+                    unaryExp = false;
+                }
+
+                if (prioBinaryExp) {
                     char lastOp = this.popOperator();
                     BinaryExpression operator;
                     if (lastOp == '*') {
-                        operator = new MultiplyExpression(this.popNumber(), termNum);
+                        operator = new MultiplyExpression(this.popNumber(), this.popNumber());
                         this.pushNumber(this.operate(operator));
                     } else if (lastOp == '/') {
-                        operator = new DivideExpression(this.popNumber(), termNum);
+                        TerminalExpression b = this.popNumber();
+                        operator = new DivideExpression(this.popNumber(), b);
                         this.pushNumber(this.operate(operator));
                     }
 
                     prioBinaryExp = false;
-                } else {
-                    this.pushNumber(termNum);
                 }
-                
-                //  System.out.println(i);
             }
 
             // If index i is an operator
@@ -124,9 +139,10 @@ class CalculatorStack {
                     // Higher priorities
                     prioBinaryExp = true;
                 } else if (curIdx =='-') {
-                    if (!(input.charAt(i-1) >= '0' && input.charAt(i-1) <= '9')) {
+                    if (i == 0 || !(input.charAt(i-1) >= '0' && input.charAt(i-1) <= '9')) {
                         // Apply unary expression to next number
                         unaryExp = true;
+                        negative = true;
                     }
                 } else if (curIdx =='(') {
                     kurungCount++;
@@ -148,12 +164,10 @@ class CalculatorStack {
                     kurungCount--;
                 } else if(curIdx == 'V'){
                     adaakar = true;
-                }else if(curIdx == '.'){
-                    //System.out.println("masuk . saat i" + i);
-                    titik = true;
+                    unaryExp = true;
                 }
 
-                if (!unaryExp && curIdx != ')') {
+                if (curIdx != ')') {
                     // If unary don't push to stack
                     this.pushOperator(curIdx);
                 }
@@ -188,7 +202,7 @@ class CalculatorStack {
         // For Debugging
 
         CalculatorStack a = new CalculatorStack();
-        String result = a.calculate("0.257*3");
+        String result = a.calculate("-V2.56*3");
         System.out.println(result);   
     }
 }
