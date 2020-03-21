@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 class CalculatorQueue 
 {
 	private int arr[]; // penyimpan elemen
@@ -84,3 +82,4 @@ class CalculatorQueue
 		if (q.isEmpty()) System.out.println("Queue Is Empty");
 		else System.out.println("Queue Is Not Empty");
 	}
+}
