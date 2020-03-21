@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 
 public class Controller {
     private String ansString;
+    private boolean isEqualButtonBefore;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -21,7 +22,8 @@ public class Controller {
 
     // Button number & .
     @FXML
-    private Button zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,sixButton,sevenButton,eightButton,nineButton,dotButton;
+    private Button zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,
+            sixButton,sevenButton,eightButton,nineButton,dotButton;
     // Button operator
     @FXML
     private Button multiplyButton,divideButton,substractButton,addButton,
@@ -43,45 +45,50 @@ public class Controller {
     @FXML
     void onClickExpression(ActionEvent event) {
         String value = ((Button)event.getSource()).getText();
-        displayText.setText(displayText.getText() + value);
+        if (isEqualButtonBefore) {
+            displayText.setText(value);
+        } else {
+            displayText.setText(displayText.getText() + value);
+        }
+        isEqualButtonBefore = false;
     }
     @FXML
-    // Melakukan perhitungan
-    // Perhitungan bisa valid atau tidak
-    // Bila valid tampilkan hasil kalkulasi, simpan hasil di antrian
-    // Bila tidak beri pesan eror
+        // Melakukan perhitungan
+        // Perhitungan bisa valid atau tidak
+        // Bila valid tampilkan hasil kalkulasi, simpan hasil di antrian
+        // Bila tidak beri pesan eror
     void onClickResult(ActionEvent event) {
         // display the result of calculation
         CalculatorStack stack = new CalculatorStack();
-        String str = displayText.getText();
-        TerminalExpression hasil = stack.calculate(str);
-        String hasilInString = Double.toString(hasil.solve());
-        ansString = hasilInString;
-        displayText.setText(hasilInString);
+        ansString = stack.calculate(displayText.getText());
+        displayText.setText(ansString);
+        isEqualButtonBefore = true;
     }
     @FXML
-    // Menyimpan nilai "saat ini" ke dalam history kalkulator
+        // Menyimpan nilai "saat ini" ke dalam history kalkulator
     void onClickMC(ActionEvent event) {
-
+        isEqualButtonBefore = false;
     }
     @FXML
-    // Menampilkan nilai yang disimpan ke layar
+        // Menampilkan nilai yang disimpan ke layar
     void onClickMR(ActionEvent event) {
-
+        isEqualButtonBefore = false;
     }
     @FXML
-    // Menuliskan hasil perhitungan sebelumnya di layar
+        // Menuliskan hasil perhitungan sebelumnya di layar
     void onClickAns(ActionEvent event) {
-        displayText.setText(displayText.getText() + ansString);
+        displayText.setText(ansString);
+        isEqualButtonBefore = false;
     }
     @FXML
-    // Menghapus semua karakter di layar
-    // Menghapus semua histori perhitungan
+        // Menghapus semua karakter di layar
+        // Menghapus semua histori perhitungan
     void onClickCE(ActionEvent event) {
         // clear
         ansString = "";
         displayText.setText("");
         displayText.getText();
+        isEqualButtonBefore = false;
     }
     @FXML
     void display(ActionEvent event) {
@@ -112,7 +119,7 @@ public class Controller {
         assert displayText != null : "fx:id=\"displayText\" was not injected: check your FXML file 'sample.fxml'.";
 
         ansString = "";
-
+        isEqualButtonBefore = false;
         displayText.setText("");
     }
 }
