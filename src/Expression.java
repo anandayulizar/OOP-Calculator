@@ -44,7 +44,17 @@ class NegativeExpression extends UnaryExpression {
   public double solve() {
     return -1 * this.x.solve();
   }
-} 
+}
+
+class SquareRootExpression extends UnaryExpression {
+  public SquareRootExpression(Expression x) {
+    super(x);
+  }
+
+  public double solve() {
+    return Math.sqrt(this.x.solve());
+  }
+}
 
 class SubtractExpression extends BinaryExpression {
   public SubtractExpression(Expression x, Expression y) {

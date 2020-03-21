@@ -40,12 +40,15 @@ class CalculatorStack {
         int kurungCount = 0;
 
         int i = 0;
+        boolean adaakar = false;
+        boolean titik = false;
         while (i < input.length()) {
             char curIdx = input.charAt(i);
             // System.out.println(curIdx);
 
             // If curIdx is a number
-            if (curIdx >= '0' && curIdx <= '9') {
+            if (curIdx >= '0' && curIdx <= '9'|| input.charAt(i)=='.') {
+                if(input.charAt(i)=='.') titik = true;
                 double num = 0;
                 while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
                     num = (num * 10) + ((double) (input.charAt(i) - '0'));
@@ -65,7 +68,38 @@ class CalculatorStack {
                 }
 
                 // If the previous char is a high priority binary operator, calculate first
-                if (prioBinaryExp) {
+                if(titik){
+                    //System.out.println("masuk1");
+                    TerminalExpression cur = this.popNumber();
+                    //System.out.println(cur.solve());
+                    double num2 = 0;
+                    int panjang=0;
+                    // baca angka dibelakang koma
+                    //System.out.println("masuk2");
+                    while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
+                        num = (num * 10) + ((double) (input.charAt(i) - '0'));
+                        i++;
+                        panjang++;
+                        //System.out.println("masuk");
+                    }
+                    i--;
+                    //System.out.println("ini panjang" + panjang);
+                    //TerminalExpression termNum = new TerminalExpression(num);
+                    double blkgkoma = Math.pow(10,panjang);
+                    double koma = cur.solve() + num2/blkgkoma;
+                    TerminalExpression hasil = new TerminalExpression(koma);
+                    this.pushNumber(hasil);
+                }else if(adaakar){
+                    SquareRootExpression result = new SquareRootExpression(termNum);
+                    while(!opStack.empty() && opStack.peek() == 'V'){
+                        termNum.x = result.solve();
+                        result = new SquareRootExpression(termNum);
+                        this.popOperator();
+                    }
+                    adaakar = false;
+                    this.pushNumber(termNum);
+                }
+                else if (prioBinaryExp) {
                     char lastOp = this.popOperator();
                     BinaryExpression operator;
                     if (lastOp == '*') {
@@ -81,7 +115,7 @@ class CalculatorStack {
                     this.pushNumber(termNum);
                 }
                 
-                // System.out.println(i);
+                //  System.out.println(i);
             }
 
             // If index i is an operator
@@ -112,6 +146,8 @@ class CalculatorStack {
                     }
                     operator = this.popOperator();
                     kurungCount--;
+                } else if(curIdx == 'V'){
+                    adaakar = true;
                 }
 
                 if (!unaryExp && curIdx != ')') {
@@ -142,14 +178,14 @@ class CalculatorStack {
             this.pushNumber(this.operate(operation));
         }
 
-        return Double.toString(numStack.pop().solve());
+        return Double.toString(this.popNumber().solve());
     }
 
     public static void main(String[] args) {
         // For Debugging
 
         CalculatorStack a = new CalculatorStack();
-        String result = a.calculate("(1+(2-5))*3-(5/-2)");
+        String result = a.calculate("VV16*3-VV16");
         System.out.println(result);   
     }
 }
