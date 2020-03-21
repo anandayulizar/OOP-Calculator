@@ -44,7 +44,6 @@
             <Button fx:id="dotButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Button fx:id="leftBracketButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="(" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Button fx:id="rightBracketButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text=")" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button fx:id="testButton" mnemonicParsing="false" text="Test" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <TextField fx:id="displayText" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="8.0" onAction="#display" prefHeight="71.0" prefWidth="290.0" text="0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0" />
