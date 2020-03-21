@@ -44,22 +44,22 @@ public class Controller {
     @FXML
     void onClickExpression(ActionEvent event) {
         String value = ((Button)event.getSource()).getText();
+        System.out.println(value.equals("<-"));
         if (isEqualButtonBefore) {
-            if (value.equals("<-")) {
-                if (displayText.getText().length() > 0) {
-                    displayText.setText(displayText.getText().substring(0, displayText.getText().length() - 1));
-                } else {
-                    displayText.setText("0");
-                }
+            displayText.setText("");
+        }
+        if (value.equals("<-")) {
+            if (displayText.getText().length() > 0) {
+                displayText.setText(displayText.getText().substring(0, displayText.getText().length() - 1));
             } else {
-                if (displayText.getText().equals("0")) {
-                    displayText.setText(value);
-                } else {
-                    displayText.setText(displayText.getText() + value);
-                }
+                displayText.setText("0");
             }
         } else {
-            displayText.setText(displayText.getText() + value);
+            if (displayText.getText().equals("0")) {
+                displayText.setText(value);
+            } else {
+                displayText.setText(displayText.getText() + value);
+            }
         }
         isEqualButtonBefore = false;
 
