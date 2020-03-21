@@ -1,17 +1,20 @@
 import java.util.Queue;
+import java.util.LinkedList;
 
 class CalculatorQueue {
-   private Queue<Integer> q;
+   private LinkedList<Integer> q;
 
     public CalculatorQueue(){
-        q = new Queue<integer>();
+        q = new LinkedList<Integer>();
     }
 
    public void MC(){
-       while( !q.empty() ) q.remove();
+       while( q.size() > 0 ) {
+           int temp = q.remove();
+       };
    }
 
    public void MR(int ans){
-        q.enqueue(ans);
+        q.add(ans);
    }
 }

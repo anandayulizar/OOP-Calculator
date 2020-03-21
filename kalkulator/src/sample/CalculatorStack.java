@@ -35,17 +35,21 @@ class CalculatorStack {
         return retValue;
     }
 
-    public TerminalExpression calculate(String input) {
+    public String calculate(String input) {
         boolean prioBinaryExp = false; // Apakah sebelumnya terdapat operator binary dengan prio tinggi (* /)
         boolean unaryExp = false; // Apakah sebelumnya terdapat operator unary (untuk saat ini -)
-        
+        int kurungCount = 0;
+
         int i = 0;
+        boolean adaakar = false;
+        boolean titik = false;
         while (i < input.length()) {
             char curIdx = input.charAt(i);
             // System.out.println(curIdx);
 
             // If curIdx is a number
-            if (curIdx >= '0' && curIdx <= '9') {
+            if (curIdx >= '0' && curIdx <= '9'|| input.charAt(i)=='.') {
+                if(input.charAt(i)=='.') titik = true;
                 double num = 0;
                 while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
                     num = (num * 10) + ((double) (input.charAt(i) - '0'));
@@ -65,7 +69,38 @@ class CalculatorStack {
                 }
 
                 // If the previous char is a high priority binary operator, calculate first
-                if (prioBinaryExp) {
+                if(titik){
+                    //System.out.println("masuk1");
+                    TerminalExpression cur = this.popNumber();
+                    //System.out.println(cur.solve());
+                    double num2 = 0;
+                    int panjang=0;
+                    // baca angka dibelakang koma
+                    //System.out.println("masuk2");
+                    while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
+                        num = (num * 10) + ((double) (input.charAt(i) - '0'));
+                        i++;
+                        panjang++;
+                        //System.out.println("masuk");
+                    }
+                    i--;
+                    //System.out.println("ini panjang" + panjang);
+                    //TerminalExpression termNum = new TerminalExpression(num);
+                    double blkgkoma = Math.pow(10,panjang);
+                    double koma = cur.solve() + num2/blkgkoma;
+                    TerminalExpression hasil = new TerminalExpression(koma);
+                    this.pushNumber(hasil);
+                }else if(adaakar){
+                    SquareRootExpression result = new SquareRootExpression(termNum);
+                    while(!opStack.empty() && opStack.peek() == 'V'){
+                        termNum.x = result.solve();
+                        result = new SquareRootExpression(termNum);
+                        this.popOperator();
+                    }
+                    adaakar = false;
+                    this.pushNumber(termNum);
+                }
+                else if (prioBinaryExp) {
                     char lastOp = this.popOperator();
                     BinaryExpression operator;
                     if (lastOp == '*') {
@@ -80,8 +115,8 @@ class CalculatorStack {
                 } else {
                     this.pushNumber(termNum);
                 }
-                
-                // System.out.println(i);
+
+                //  System.out.println(i);
             }
 
             // If index i is an operator
@@ -94,9 +129,29 @@ class CalculatorStack {
                         // Apply unary expression to next number
                         unaryExp = true;
                     }
+                } else if (curIdx =='(') {
+                    kurungCount++;
+                } else if (curIdx ==')') {
+                    char operator;
+                    while (opStack.peek() != '(') {
+                        TerminalExpression a = numStack.pop();
+                        TerminalExpression b = numStack.pop();
+                        operator = this.popOperator();
+                        BinaryExpression operation;
+                        if (operator == '+') {
+                            operation = new AddExpression(b, a);
+                        } else {
+                            operation = new SubtractExpression(b, a);
+                        }
+                        this.pushNumber(this.operate(operation));
+                    }
+                    operator = this.popOperator();
+                    kurungCount--;
+                } else if(curIdx == 'V'){
+                    adaakar = true;
                 }
 
-                if (!unaryExp) {
+                if (!unaryExp && curIdx != ')') {
                     // If unary don't push to stack
                     this.pushOperator(curIdx);
                 }
@@ -104,7 +159,8 @@ class CalculatorStack {
             i++;
         }
 
-        
+        // Butuh exception klo kurungCount > 0, brarti belom nemu kurungTutup
+        // jadinya error
 
         // Empty the stack until there's no + or - left
         while (!opStack.empty()) {
@@ -123,13 +179,6 @@ class CalculatorStack {
             this.pushNumber(this.operate(operation));
         }
 
-        return numStack.pop();
-    }
-
-    public static void main(String[] args) {
-        // For Debugging
-        CalculatorStack a = new CalculatorStack();
-        TerminalExpression result = a.calculate("1*-2+10/-5");
-        System.out.println(result.solve());   
+        return Double.toString(this.popNumber().solve());
     }
 }
