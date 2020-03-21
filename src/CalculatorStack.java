@@ -47,8 +47,7 @@ class CalculatorStack {
             // System.out.println(curIdx);
 
             // If curIdx is a number
-            if (curIdx >= '0' && curIdx <= '9'|| input.charAt(i)=='.') {
-                if(input.charAt(i)=='.') titik = true;
+            if (curIdx >= '0' && curIdx <= '9') {
                 double num = 0;
                 while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
                     num = (num * 10) + ((double) (input.charAt(i) - '0'));
@@ -69,26 +68,27 @@ class CalculatorStack {
 
                 // If the previous char is a high priority binary operator, calculate first
                 if (titik) {
+                    //System.out.println("ini i "+i);
+                    //i-=1;
                     //System.out.println("masuk1");
                     TerminalExpression cur = this.popNumber();
                     //System.out.println(cur.solve());
-                    double num2 = 0;
-                    int panjang=0;
+                    double num2 = num;
+                    int panjang=1;
                     // baca angka dibelakang koma
-                    //System.out.println("masuk2");
-                    while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
-                        num2 = (num2 * 10) + ((double) (input.charAt(i) - '0'));
-                        i++;
+                    while(num2>10){
+                        num2/=10;
                         panjang++;
-                        //System.out.println("masuk");
                     }
-                    i--;
-                    //System.out.println("ini panjang" + panjang);
-                    //TerminalExpression termNum = new TerminalExpression(num);
+                    System.out.println(num2);
+                    //System.out.println("ini panjang " + panjang);
                     double blkgkoma = Math.pow(10,panjang);
-                    double koma = cur.solve() + num2/blkgkoma;
+                    double koma = cur.solve() + num/blkgkoma;
                     TerminalExpression hasil = new TerminalExpression(koma);
+                    System.out.println("ini hasil" + hasil.solve());
                     this.pushNumber(hasil);
+                    this.popOperator();
+                    titik = false;
                 } else if (adaakar) {
                     SquareRootExpression result = new SquareRootExpression(termNum);
                     while(!opStack.empty() && opStack.peek() == 'V'){
@@ -148,6 +148,9 @@ class CalculatorStack {
                     kurungCount--;
                 } else if(curIdx == 'V'){
                     adaakar = true;
+                }else if(curIdx == '.'){
+                    //System.out.println("masuk . saat i" + i);
+                    titik = true;
                 }
 
                 if (!unaryExp && curIdx != ')') {
@@ -185,7 +188,7 @@ class CalculatorStack {
         // For Debugging
 
         CalculatorStack a = new CalculatorStack();
-        String result = a.calculate("0.5*2");
+        String result = a.calculate("0.257*3");
         System.out.println(result);   
     }
 }
