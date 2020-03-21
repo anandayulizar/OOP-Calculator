@@ -56,6 +56,9 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1ZDCbosH81sdpTcAog86orVjEKh" />
   <component name="ProjectReloadState">
@@ -76,7 +79,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/openjfx-14_linux-x64_bin-sdk/javafx-sdk-14/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -112,7 +115,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="kalkulator" />
-      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Desktop/openjfx-14_linux-x64_bin-sdk/javafx-sdk-14/lib --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../openjfx-14_linux-x64_bin-sdk/javafx-sdk-14/lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -193,29 +196,29 @@
       <screen x="0" y="27" width="1366" height="686" />
     </state>
     <state x="305" y="113" width="735" height="513" key="FileChooserDialogImpl/0.27.1366.686@0.27.1366.686" timestamp="1584364389368" />
-    <state width="1320" height="142" key="GridCell.Tab.0.bottom" timestamp="1584516568333">
+    <state width="1320" height="14" key="GridCell.Tab.0.bottom" timestamp="1584758941471">
       <screen x="0" y="27" width="1366" height="686" />
     </state>
-    <state width="1320" height="142" key="GridCell.Tab.0.bottom/0.27.1366.686@0.27.1366.686" timestamp="1584516568333" />
-    <state width="1320" height="142" key="GridCell.Tab.0.center" timestamp="1584516568331">
+    <state width="1320" height="14" key="GridCell.Tab.0.bottom/0.27.1366.686@0.27.1366.686" timestamp="1584758941471" />
+    <state width="1320" height="14" key="GridCell.Tab.0.center" timestamp="1584758941469">
       <screen x="0" y="27" width="1366" height="686" />
     </state>
-    <state width="1320" height="142" key="GridCell.Tab.0.center/0.27.1366.686@0.27.1366.686" timestamp="1584516568331" />
-    <state width="1320" height="142" key="GridCell.Tab.0.left" timestamp="1584516568331">
+    <state width="1320" height="14" key="GridCell.Tab.0.center/0.27.1366.686@0.27.1366.686" timestamp="1584758941469" />
+    <state width="1320" height="14" key="GridCell.Tab.0.left" timestamp="1584758941468">
       <screen x="0" y="27" width="1366" height="686" />
     </state>
-    <state width="1320" height="142" key="GridCell.Tab.0.left/0.27.1366.686@0.27.1366.686" timestamp="1584516568331" />
-    <state width="1320" height="142" key="GridCell.Tab.0.right" timestamp="1584516568332">
+    <state width="1320" height="14" key="GridCell.Tab.0.left/0.27.1366.686@0.27.1366.686" timestamp="1584758941468" />
+    <state width="1320" height="14" key="GridCell.Tab.0.right" timestamp="1584758941470">
       <screen x="0" y="27" width="1366" height="686" />
     </state>
-    <state width="1320" height="142" key="GridCell.Tab.0.right/0.27.1366.686@0.27.1366.686" timestamp="1584516568332" />
+    <state width="1320" height="14" key="GridCell.Tab.0.right/0.27.1366.686@0.27.1366.686" timestamp="1584758941470" />
     <state x="166" y="27" width="1024" height="686" key="SettingsEditor" timestamp="1584366924849">
       <screen x="0" y="27" width="1366" height="686" />
     </state>
     <state x="166" y="27" width="1024" height="686" key="SettingsEditor/0.27.1366.686@0.27.1366.686" timestamp="1584366924849" />
-    <state x="339" y="196" key="com.intellij.ide.util.TipDialog" timestamp="1584504938271">
+    <state x="339" y="196" key="com.intellij.ide.util.TipDialog" timestamp="1584757933270">
       <screen x="0" y="27" width="1366" height="686" />
     </state>
-    <state x="339" y="196" key="com.intellij.ide.util.TipDialog/0.27.1366.686@0.27.1366.686" timestamp="1584504938271" />
+    <state x="339" y="196" key="com.intellij.ide.util.TipDialog/0.27.1366.686@0.27.1366.686" timestamp="1584757933270" />
   </component>
 </project>
