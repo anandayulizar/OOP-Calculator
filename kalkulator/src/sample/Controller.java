@@ -4,6 +4,8 @@
 package sample;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,8 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class Controller {
-    private String ansString, currentText;
+    private String ansString, currentText,mcString;
     private boolean isEqualButtonBefore;
+    private Queue<String> memory;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -101,11 +104,31 @@ public class Controller {
     @FXML
         // Menyimpan nilai "saat ini" ke dalam history kalkulator
     void onClickMC(ActionEvent event) {
+        // yang dapat disimpan hanya angka
+        // bila bukan angka throw exception
+        if (currentText == ""){
+            // do nothing
+        } else {
+            // asumsi currentText pasti value
+            // kalau currentString adalah sebuah value maka push
+            mcString = currentText;
+            // kalau tidak throw exception
+            // help
+            memory.add(mcString);
+            displayText.setText(mcString);
+        }
         isEqualButtonBefore = false;
     }
     @FXML
         // Menampilkan nilai yang disimpan ke layar
     void onClickMR(ActionEvent event) {
+        String pop;
+        // tampilkan kalau queue tidak kosong
+        if (!memory.isEmpty()){
+            pop = memory.remove();
+            displayText.setText(pop);
+        }
+        // kalau queue kosong throw exception
         isEqualButtonBefore = false;
     }
     @FXML
@@ -126,6 +149,12 @@ public class Controller {
     void onClickCE(ActionEvent event) {
         // clear
         ansString = "";
+        while (!memory.isEmpty()){
+            memory.remove();
+        }
+        if (memory.isEmpty()){
+            System.out.println("Queue kosong");
+        }
         displayText.setText("");
         displayText.getText();
         isEqualButtonBefore = false;
@@ -159,7 +188,9 @@ public class Controller {
         assert displayText != null : "fx:id=\"displayText\" was not injected: check your FXML file 'sample.fxml'.";
         ansString = "";
         currentText = "";
+        mcString = "";
         isEqualButtonBefore = false;
+        memory = new LinkedList<>();
         displayText.setText("");
     }
 }
