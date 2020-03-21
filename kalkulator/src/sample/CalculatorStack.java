@@ -60,7 +60,7 @@ class CalculatorStack {
                     NegativeExpression negNum = new NegativeExpression(termNum);
                     // System.out.println(negNum.solve());
                     termNum.x = negNum.solve();
-                    
+
                     unaryExp = false;
                 }
 

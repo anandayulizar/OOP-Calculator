@@ -21,29 +21,32 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="mcID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mcClick" prefHeight="40.0" prefWidth="60.0" text="MC" textAlignment="CENTER" />
-            <Button fx:id="sevenID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sevenClick" prefHeight="40.0" prefWidth="60.0" text="7" textAlignment="CENTER" GridPane.rowIndex="2" />
-            <Button fx:id="fourID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fourClick" prefHeight="40.0" prefWidth="60.0" text="4" textAlignment="CENTER" GridPane.rowIndex="3" />
-            <Button fx:id="oneID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#oneClick" prefHeight="40.0" prefWidth="60.0" text="1" textAlignment="CENTER" GridPane.rowIndex="4" />
-            <Button fx:id="zeroID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#zeroClick" prefHeight="40.0" prefWidth="60.0" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button fx:id="mrID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mrClick" prefHeight="40.0" prefWidth="60.0" text="MR" textAlignment="CENTER" GridPane.columnIndex="1" />
-            <Button fx:id="eightID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#eightClick" prefHeight="40.0" prefWidth="60.0" text="8" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="fiveID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fiveClick" prefHeight="40.0" prefWidth="60.0" text="5" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="twoID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#twoClick" prefHeight="40.0" prefWidth="60.0" text="2" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button fx:id="ceID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ceCLick" prefHeight="40.0" prefWidth="60.0" text="CE" textAlignment="CENTER" GridPane.columnIndex="2" />
-            <Button fx:id="nineID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#nineClick" prefHeight="40.0" prefWidth="60.0" text="9" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="sixID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sixClick" prefHeight="40.0" prefWidth="60.0" text="6" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button fx:id="threeID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#threeClick" prefHeight="40.0" prefWidth="60.0" text="3" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button fx:id="resultID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#resultClick" prefHeight="40.0" prefWidth="60.0" text="=" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Button fx:id="ansID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ansClick" prefHeight="40.0" prefWidth="60.0" text="Ans" textAlignment="CENTER" GridPane.columnIndex="3" />
-            <Button fx:id="multiplyID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#multiplyClick" prefHeight="40.0" prefWidth="60.0" text="*" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="divideID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#divideClick" prefHeight="40.0" prefWidth="60.0" text="/" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button fx:id="substractID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#substractClick" prefHeight="40.0" prefWidth="60.0" text="-" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="addID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addClick" prefHeight="40.0" prefWidth="60.0" text="+" textAlignment="CENTER" GridPane.rowIndex="1" />
-            <Button fx:id="rootID" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rootClick" prefHeight="40.0" prefWidth="60.0" text="V" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button fx:id="dotID" mnemonicParsing="false" onAction="#dotClick" prefHeight="40.0" prefWidth="60.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="mcButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickMC" prefHeight="40.0" prefWidth="60.0" text="MC" textAlignment="CENTER" />
+            <Button fx:id="sevenButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="7" textAlignment="CENTER" GridPane.rowIndex="2" />
+            <Button fx:id="fourButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="4" textAlignment="CENTER" GridPane.rowIndex="3" />
+            <Button fx:id="oneButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="1" textAlignment="CENTER" GridPane.rowIndex="4" />
+            <Button fx:id="zeroButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button fx:id="mrButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickMR" prefHeight="40.0" prefWidth="60.0" text="MR" textAlignment="CENTER" GridPane.columnIndex="1" />
+            <Button fx:id="eightButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="8" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="fiveButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="5" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="twoButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="2" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button fx:id="ceButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickCE" prefHeight="40.0" prefWidth="60.0" text="CE" textAlignment="CENTER" GridPane.columnIndex="2" />
+            <Button fx:id="nineButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="9" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="sixButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="6" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="threeButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="3" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button fx:id="resultButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickResult" prefHeight="40.0" prefWidth="60.0" text="=" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button fx:id="ansButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickAns" prefHeight="40.0" prefWidth="60.0" text="Ans" textAlignment="CENTER" GridPane.columnIndex="3" />
+            <Button fx:id="multiplyButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="*" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="divideButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="/" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="substractButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="-" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="addButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="+" textAlignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="rootButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="V" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="dotButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="leftBracketButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="(" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="rightBracketButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text=")" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="testButton" mnemonicParsing="false" text="Test" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <TextField fx:id="displayID" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="8.0" onAction="#display" prefHeight="71.0" prefWidth="299.0" text="0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextField fx:id="displayText" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="8.0" onAction="#display" prefHeight="71.0" prefWidth="290.0" text="0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
