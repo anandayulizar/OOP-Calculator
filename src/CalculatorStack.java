@@ -68,7 +68,7 @@ class CalculatorStack {
                 }
 
                 // If the previous char is a high priority binary operator, calculate first
-                if(titik){
+                if (titik) {
                     //System.out.println("masuk1");
                     TerminalExpression cur = this.popNumber();
                     //System.out.println(cur.solve());
@@ -77,7 +77,7 @@ class CalculatorStack {
                     // baca angka dibelakang koma
                     //System.out.println("masuk2");
                     while (i < input.length() && input.charAt(i) >= '0' && input.charAt(i) <= '9') {
-                        num = (num * 10) + ((double) (input.charAt(i) - '0'));
+                        num2 = (num2 * 10) + ((double) (input.charAt(i) - '0'));
                         i++;
                         panjang++;
                         //System.out.println("masuk");
@@ -89,7 +89,7 @@ class CalculatorStack {
                     double koma = cur.solve() + num2/blkgkoma;
                     TerminalExpression hasil = new TerminalExpression(koma);
                     this.pushNumber(hasil);
-                }else if(adaakar){
+                } else if (adaakar) {
                     SquareRootExpression result = new SquareRootExpression(termNum);
                     while(!opStack.empty() && opStack.peek() == 'V'){
                         termNum.x = result.solve();
@@ -185,7 +185,7 @@ class CalculatorStack {
         // For Debugging
 
         CalculatorStack a = new CalculatorStack();
-        String result = a.calculate("VV16*3-VV16");
+        String result = a.calculate("0.5*2");
         System.out.println(result);   
     }
 }

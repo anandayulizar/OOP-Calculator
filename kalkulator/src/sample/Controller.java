@@ -22,8 +22,7 @@ public class Controller {
 
     // Button number & .
     @FXML
-    private Button zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,
-            sixButton,sevenButton,eightButton,nineButton,dotButton;
+    private Button zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,sixButton,sevenButton,eightButton,nineButton,dotButton;
     // Button operator
     @FXML
     private Button multiplyButton,divideButton,substractButton,addButton,
@@ -45,12 +44,31 @@ public class Controller {
     @FXML
     void onClickExpression(ActionEvent event) {
         String value = ((Button)event.getSource()).getText();
+        System.out.println(value.equals("<-"));
         if (isEqualButtonBefore) {
-            displayText.setText(value);
+            if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                displayText.setText("");
+            }
+        }
+        if (value.equals("<-")) {
+            if (displayText.getText().length() > 0) {
+                displayText.setText(displayText.getText().substring(0, displayText.getText().length() - 1));
+            } else {
+                displayText.setText("0");
+            }
         } else {
-            displayText.setText(displayText.getText() + value);
+            if (displayText.getText().equals("0")) {
+                if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                    displayText.setText(value);
+                } else {
+                    displayText.setText(displayText.getText() + value);
+                }
+            } else {
+                displayText.setText(displayText.getText() + value);
+            }
         }
         isEqualButtonBefore = false;
+
     }
     @FXML
         // Melakukan perhitungan
@@ -60,9 +78,23 @@ public class Controller {
     void onClickResult(ActionEvent event) {
         // display the result of calculation
         CalculatorStack stack = new CalculatorStack();
-        ansString = stack.calculate(displayText.getText());
-        displayText.setText(ansString);
-        isEqualButtonBefore = true;
+        String str = displayText.getText();
+        String hasilString = "";
+        if (!isEqualButtonBefore) {
+            try {
+                hasilString = stack.calculate(str);
+                double hasilDouble = Double.parseDouble(hasilString);
+                long hasilLong = (long)hasilDouble;
+                if (hasilDouble == hasilLong) {
+                    hasilString = Long.toString(hasilLong);
+                }
+            } catch (Exception e) {
+                hasilString = e.getMessage();
+            }
+            ansString = hasilString;
+            displayText.setText(hasilString);
+            isEqualButtonBefore = true;
+        }
     }
     @FXML
         // Menyimpan nilai "saat ini" ke dalam history kalkulator
