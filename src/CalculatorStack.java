@@ -34,10 +34,11 @@ class CalculatorStack {
         return retValue;
     }
 
-    public TerminalExpression calculate(String input) {
+    public String calculate(String input) {
         boolean prioBinaryExp = false; // Apakah sebelumnya terdapat operator binary dengan prio tinggi (* /)
         boolean unaryExp = false; // Apakah sebelumnya terdapat operator unary (untuk saat ini -)
-        
+        int kurungCount = 0;
+
         int i = 0;
         while (i < input.length()) {
             char curIdx = input.charAt(i);
@@ -93,9 +94,27 @@ class CalculatorStack {
                         // Apply unary expression to next number
                         unaryExp = true;
                     }
+                } else if (curIdx =='(') {
+                    kurungCount++;
+                } else if (curIdx ==')') {
+                    char operator;
+                    while (opStack.peek() != '(') {
+                        TerminalExpression a = numStack.pop();
+                        TerminalExpression b = numStack.pop();
+                        operator = this.popOperator();
+                        BinaryExpression operation;
+                        if (operator == '+') {
+                            operation = new AddExpression(b, a);
+                        } else {
+                            operation = new SubtractExpression(b, a);
+                        }
+                        this.pushNumber(this.operate(operation));
+                    }
+                    operator = this.popOperator();
+                    kurungCount--;
                 }
 
-                if (!unaryExp) {
+                if (!unaryExp && curIdx != ')') {
                     // If unary don't push to stack
                     this.pushOperator(curIdx);
                 }
@@ -103,7 +122,8 @@ class CalculatorStack {
             i++;
         }
 
-        
+        // Butuh exception klo kurungCount > 0, brarti belom nemu kurungTutup
+        // jadinya error
 
         // Empty the stack until there's no + or - left
         while (!opStack.empty()) {
@@ -122,14 +142,14 @@ class CalculatorStack {
             this.pushNumber(this.operate(operation));
         }
 
-        return numStack.pop();
+        return Double.toString(numStack.pop().solve());
     }
 
     public static void main(String[] args) {
         // For Debugging
 
         CalculatorStack a = new CalculatorStack();
-        TerminalExpression result = a.calculate("1*-2+10/-5");
-        System.out.println(result.solve());   
+        String result = a.calculate("(1+(2-5))*3-(5/-2)");
+        System.out.println(result);   
     }
 }
