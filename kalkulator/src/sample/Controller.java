@@ -46,7 +46,9 @@ public class Controller {
         String value = ((Button)event.getSource()).getText();
         System.out.println(value.equals("<-"));
         if (isEqualButtonBefore) {
-            displayText.setText("");
+            if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                displayText.setText("");
+            }
         }
         if (value.equals("<-")) {
             if (displayText.getText().length() > 0) {
@@ -56,7 +58,11 @@ public class Controller {
             }
         } else {
             if (displayText.getText().equals("0")) {
-                displayText.setText(value);
+                if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                    displayText.setText(value);
+                } else {
+                    displayText.setText(displayText.getText() + value);
+                }
             } else {
                 displayText.setText(displayText.getText() + value);
             }
@@ -74,19 +80,21 @@ public class Controller {
         CalculatorStack stack = new CalculatorStack();
         String str = displayText.getText();
         String hasilString = "";
-        try {
-            hasilString = stack.calculate(str);
-            double hasilDouble = Double.parseDouble(hasilString);
-            long hasilLong = (long)hasilDouble;
-            if (hasilDouble == hasilLong) {
-                hasilString = Long.toString(hasilLong);
+        if (!isEqualButtonBefore) {
+            try {
+                hasilString = stack.calculate(str);
+                double hasilDouble = Double.parseDouble(hasilString);
+                long hasilLong = (long)hasilDouble;
+                if (hasilDouble == hasilLong) {
+                    hasilString = Long.toString(hasilLong);
+                }
+            } catch (Exception e) {
+                hasilString = e.getMessage();
             }
-        } catch (Exception e) {
-            hasilString = e.getMessage();
+            ansString = hasilString;
+            displayText.setText(hasilString);
+            isEqualButtonBefore = true;
         }
-        ansString = hasilString;
-        displayText.setText(hasilString);
-        isEqualButtonBefore = true;
     }
     @FXML
         // Menyimpan nilai "saat ini" ke dalam history kalkulator

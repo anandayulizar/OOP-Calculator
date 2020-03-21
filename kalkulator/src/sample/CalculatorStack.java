@@ -35,7 +35,7 @@ class CalculatorStack {
         return retValue;
     }
 
-    public String calculate(String input) {
+    public String calculate(String input) throws Exception {
         boolean prioBinaryExp = false; // Apakah sebelumnya terdapat operator binary dengan prio tinggi (* /)
         boolean unaryExp = false; // Apakah sebelumnya terdapat operator unary (untuk saat ini -)
         int kurungCount = 0;
@@ -69,7 +69,7 @@ class CalculatorStack {
                 }
 
                 // If the previous char is a high priority binary operator, calculate first
-                if(titik){
+                if (titik) {
                     //System.out.println("masuk1");
                     TerminalExpression cur = this.popNumber();
                     //System.out.println(cur.solve());
@@ -101,16 +101,20 @@ class CalculatorStack {
                     this.pushNumber(termNum);
                 }
                 else if (prioBinaryExp) {
+                    TerminalExpression topNum = this.popNumber();
                     char lastOp = this.popOperator();
                     BinaryExpression operator;
-                    if (lastOp == '*') {
-                        operator = new MultiplyExpression(this.popNumber(), termNum);
-                        this.pushNumber(this.operate(operator));
-                    } else if (lastOp == '/') {
-                        operator = new DivideExpression(this.popNumber(), termNum);
-                        this.pushNumber(this.operate(operator));
+                    if (termNum.solve() == 0) {
+                        throw new Exception("Cannot divide by zero");
+                    } else {
+                        if (lastOp == '*') {
+                            operator = new MultiplyExpression(topNum, termNum);
+                            this.pushNumber(this.operate(operator));
+                        } else if (lastOp == '/') {
+                            operator = new DivideExpression(topNum, termNum);
+                            this.pushNumber(this.operate(operator));
+                        }
                     }
-
                     prioBinaryExp = false;
                 } else {
                     this.pushNumber(termNum);
@@ -169,6 +173,7 @@ class CalculatorStack {
             // System.out.println(opStack.peek());
             TerminalExpression a = numStack.pop();
             TerminalExpression b = numStack.pop();
+            // Sini throw error stack is empty
             char operator = this.popOperator();
             BinaryExpression operation;
             if (operator == '+') {
