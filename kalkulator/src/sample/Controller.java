@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class Controller {
-    private String ansString;
+    private String ansString, currentText;
     private boolean isEqualButtonBefore;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -22,8 +22,7 @@ public class Controller {
 
     // Button number & .
     @FXML
-    private Button zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,
-            sixButton,sevenButton,eightButton,nineButton,dotButton;
+    private Button zeroButton,oneButton,twoButton,threeButton,fourButton,fiveButton,sixButton,sevenButton,eightButton,nineButton,dotButton;
     // Button operator
     @FXML
     private Button multiplyButton,divideButton,substractButton,addButton,
@@ -45,11 +44,30 @@ public class Controller {
     @FXML
     void onClickExpression(ActionEvent event) {
         String value = ((Button)event.getSource()).getText();
+        System.out.println(value.equals("<-"));
         if (isEqualButtonBefore) {
-            displayText.setText(value);
-        } else {
-            displayText.setText(displayText.getText() + value);
+            if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                displayText.setText("");
+            }
         }
+        if (value.equals("<-")) {
+            if (displayText.getText().length() > 0) {
+                displayText.setText(displayText.getText().substring(0, displayText.getText().length() - 1));
+            } else {
+                displayText.setText("0");
+            }
+        } else {
+            if (displayText.getText().equals("0")) {
+                if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                    displayText.setText(value);
+                } else {
+                    displayText.setText(displayText.getText() + value);
+                }
+            } else {
+                displayText.setText(displayText.getText() + value);
+            }
+        }
+        currentText += displayText.getText();
         isEqualButtonBefore = false;
     }
     @FXML
@@ -60,9 +78,24 @@ public class Controller {
     void onClickResult(ActionEvent event) {
         // display the result of calculation
         CalculatorStack stack = new CalculatorStack();
-        ansString = stack.calculate(displayText.getText());
-        displayText.setText(ansString);
-        isEqualButtonBefore = true;
+        String str = displayText.getText();
+        String hasilString = "";
+        if (!isEqualButtonBefore) {
+            try {
+                hasilString = stack.calculate(str);
+                double hasilDouble = Double.parseDouble(hasilString);
+                long hasilLong = (long)hasilDouble;
+                if (hasilDouble == hasilLong) {
+                    hasilString = Long.toString(hasilLong);
+                }
+            } catch (Exception e) {
+                hasilString = e.getMessage();
+            }
+            ansString = hasilString;
+            displayText.setText(hasilString);
+            currentText = ""; // bila = dipencet maka currentText diset default
+            isEqualButtonBefore = true;
+        }
     }
     @FXML
         // Menyimpan nilai "saat ini" ke dalam history kalkulator
@@ -77,7 +110,13 @@ public class Controller {
     @FXML
         // Menuliskan hasil perhitungan sebelumnya di layar
     void onClickAns(ActionEvent event) {
-        displayText.setText(ansString);
+        if (currentText == ""){
+            // bila sebelum ans dipencet layar kosong maka tampilkan nilai Ans
+            displayText.setText(ansString);
+        } else {
+            // bila sebelum ans dipencet layar tidak kosong maka layar+=ans
+            displayText.setText(displayText.getText() + ansString);
+        }
         isEqualButtonBefore = false;
     }
     @FXML
@@ -117,8 +156,8 @@ public class Controller {
         assert addButton != null : "fx:id=\"addButton\" was not injected: check your FXML file 'sample.fxml'.";
         assert rootButton != null : "fx:id=\"rootButton\" was not injected: check your FXML file 'sample.fxml'.";
         assert displayText != null : "fx:id=\"displayText\" was not injected: check your FXML file 'sample.fxml'.";
-
         ansString = "";
+        currentText = "";
         isEqualButtonBefore = false;
         displayText.setText("");
     }
