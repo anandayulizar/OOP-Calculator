@@ -34,16 +34,17 @@
             <Button fx:id="nineButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="9" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button fx:id="sixButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="6" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Button fx:id="threeButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="3" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button fx:id="resultButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickResult" prefHeight="40.0" prefWidth="60.0" text="=" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button fx:id="resultButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickResult" prefHeight="40.0" prefWidth="60.0" text="=" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Button fx:id="ansButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickAns" prefHeight="40.0" prefWidth="60.0" text="Ans" textAlignment="CENTER" GridPane.columnIndex="3" />
             <Button fx:id="multiplyButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="*" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button fx:id="divideButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="/" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="divideButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="/" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Button fx:id="substractButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="-" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="addButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="+" textAlignment="CENTER" GridPane.rowIndex="1" />
-            <Button fx:id="rootButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="V" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button fx:id="dotButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button fx:id="rootButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="V" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button fx:id="dotButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="." GridPane.rowIndex="5" />
             <Button fx:id="leftBracketButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="(" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Button fx:id="rightBracketButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text=")" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button fx:id="backSpaceButton" mnemonicParsing="false" onAction="#onClickExpression" prefHeight="40.0" prefWidth="60.0" text="&lt;-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <TextField fx:id="displayText" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="8.0" onAction="#display" prefHeight="71.0" prefWidth="290.0" text="0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0" />

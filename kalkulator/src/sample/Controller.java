@@ -69,6 +69,7 @@ public class Controller {
         }
         currentText += displayText.getText();
         isEqualButtonBefore = false;
+
     }
     @FXML
         // Melakukan perhitungan
