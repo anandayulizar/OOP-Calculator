@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 
 public class Controller {
     private String ansString, currentText,mcString;
-    private boolean isEqualButtonBefore, isMCButtonBefore;
+    private boolean isEqualButtonBefore, isMCButtonBefore, isMRButtonBefore;
     private Queue<String> memory;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -46,6 +46,7 @@ public class Controller {
     // METHODS
     @FXML
     void onClickExpression(ActionEvent event) {
+        System.out.println("Tombol " + ((Button)event.getSource()).getText() + " dipencet");
         String value = ((Button)event.getSource()).getText();
         System.out.println(value.equals("<-"));
         if (isEqualButtonBefore || isMCButtonBefore) {
@@ -79,13 +80,15 @@ public class Controller {
         currentText += displayText.getText();
         isEqualButtonBefore = false;
         isMCButtonBefore = false;
+        isMRButtonBefore = false;
     }
     @FXML
-    // Melakukan perhitungan
-    // Perhitungan bisa valid atau tidak
-    // Bila valid tampilkan hasil kalkulasi, simpan hasil di antrian
-    // Bila tidak beri pesan eror
+        // Melakukan perhitungan
+        // Perhitungan bisa valid atau tidak
+        // Bila valid tampilkan hasil kalkulasi, simpan hasil di antrian
+        // Bila tidak beri pesan eror
     void onClickResult(ActionEvent event) {
+        System.out.println("Tombol = dipencet");
         // display the result of calculation
         Evaluate stack = new Evaluate();
         String str = displayText.getText();
@@ -106,18 +109,20 @@ public class Controller {
             currentText = ""; // bila = dipencet maka currentText diset default
             isEqualButtonBefore = true;
             isMCButtonBefore = false;
+            isMRButtonBefore = false;
         }
     }
     @FXML
-    // Menyimpan nilai "saat ini" ke dalam history kalkulator
+        // Menyimpan nilai "saat ini" ke dalam history kalkulator
     void onClickMC(ActionEvent event) {
+        System.out.println("Tombol MC dipencet");
         currentText = displayText.getText();
         if (currentText == ""){
             // do nothing
             System.out.println("Layar kosong");
         } else {
             if (mcString.contains("+") || mcString.contains("-") || mcString.contains("*")
-            || mcString.contains("/") || mcString.contains("V"))        {
+                    || mcString.contains("/") || mcString.contains("V"))        {
                 // throw exception
                 System.out.println("String bukan sebuah value");
             } else {
@@ -129,25 +134,32 @@ public class Controller {
         }
         isEqualButtonBefore = false;
         isMCButtonBefore = true;
+        isMRButtonBefore = false;
     }
     @FXML
-    // Menampilkan nilai yang disimpan ke layar
+        // Menampilkan nilai yang disimpan ke layar
     void onClickMR(ActionEvent event) {
+        System.out.println("Tombol MR dipencet");
         String pop;
-        if (!memory.isEmpty()){
+        // hasil mr ditampilkan sendiri jika tombol mr dipencet sebelumnya/
+        if (!memory.isEmpty()) {
             pop = memory.remove();
-            displayText.setText(pop);
+            if (isMRButtonBefore || isMCButtonBefore) {
+                displayText.setText(pop);
+            } else {
+                displayText.setText(displayText.getText() + pop);
+            }
         } else {
-            // throw exception
-            displayText.setText("");
             System.out.println("Queue kosong");
         }
         isEqualButtonBefore = false;
         isMCButtonBefore = false;
+        isMRButtonBefore = true;
     }
     @FXML
-    // Menuliskan hasil perhitungan sebelumnya di layar
+        // Menuliskan hasil perhitungan sebelumnya di layar
     void onClickAns(ActionEvent event) {
+        System.out.println("Tombol Ans dipencet");
         if (currentText == ""){
             // bila sebelum ans dipencet layar kosong maka tampilkan nilai Ans
             displayText.setText(ansString);
@@ -157,18 +169,19 @@ public class Controller {
         }
         isEqualButtonBefore = false;
         isMCButtonBefore = false;
+        isMRButtonBefore = false;
     }
     @FXML
-    // Menghapus semua karakter di layar
-    // Menghapus semua histori perhitungan
+        // Menghapus semua karakter di layar
+        // Menghapus semua histori perhitungan
     void onClickCE(ActionEvent event) {
         // clear
+        System.out.println("Tombol CE dipencet");
         ansString = "";
         while (!memory.isEmpty()){
             memory.remove();
         }
         displayText.setText("");
-        displayText.getText();
         isEqualButtonBefore = false;
         isMCButtonBefore = false;
         if (memory.isEmpty()){
@@ -208,6 +221,7 @@ public class Controller {
         mcString = "";
         isEqualButtonBefore = false;
         isMCButtonBefore = false;
+        isMRButtonBefore = false;
         memory = new LinkedList<>();
         displayText.setText("");
     }
