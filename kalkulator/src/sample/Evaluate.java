@@ -1,4 +1,4 @@
-package sample;
+// package sample;
 
 public class Evaluate {
 	private CalculatorStack stack;
@@ -9,6 +9,14 @@ public class Evaluate {
 
 	public boolean isNumberCheck(String input, int idx) {
         return input.charAt(idx) >= '0' && input.charAt(idx) <= '9';
+    }
+
+
+    public TerminalExpression operate(Expression op) {
+        // Calculate for expressions
+
+        TerminalExpression retValue = new TerminalExpression(op.solve());
+        return retValue;
     }
 
 	public String calculate(String input) throws Exception {
@@ -110,11 +118,11 @@ public class Evaluate {
 //                    }
                     if (lastOp == '*') {
                         operator = new MultiplyExpression(stack.popNumber(), stack.popNumber());
-                        stack.push(stack.operate(operator));
+                        stack.push(operate(operator));
                     } else if (lastOp == '/') {
                         TerminalExpression b = stack.popNumber();
                         operator = new DivideExpression(stack.popNumber(), b);
-                        stack.push(stack.operate(operator));
+                        stack.push(operate(operator));
                     }
                     prioBinaryExp = false;
                 }
@@ -148,7 +156,7 @@ public class Evaluate {
                         } else {
                             operation = new SubtractExpression(b, a);
                         }
-                        stack.push(stack.operate(operation));
+                        stack.push(operate(operation));
                     }
                     operator = stack.popOperator();
                     kurungCount--;
@@ -188,7 +196,7 @@ public class Evaluate {
             } else {
                 operation = new SubtractExpression(b, a);
             }
-            stack.push(stack.operate(operation));
+            stack.push(operate(operation));
         }
 
         double temp = stack.popNumber().solve();

@@ -1,4 +1,4 @@
-package sample;
+// package sample;
 import java.util.Stack;
 
 class CalculatorStack {
@@ -49,14 +49,6 @@ class CalculatorStack {
     }
 
     public char opPeek() {
-        return opStack.peek();
+       return opStack.peek();
     }
-
-    public TerminalExpression operate(Expression op) {
-        // Calculate for expressions
-
-        TerminalExpression retValue = new TerminalExpression(op.solve());
-        return retValue;
-    }
-    
 }
