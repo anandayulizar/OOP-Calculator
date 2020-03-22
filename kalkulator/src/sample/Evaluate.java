@@ -28,6 +28,7 @@ public class Evaluate {
         boolean adaakar = false;
         boolean titik = false;
         boolean negative = false;
+        boolean angkaSebelumAkar = false;
         while (i < input.length()) {
             char curIdx = input.charAt(i);
             System.out.println(curIdx);
@@ -84,6 +85,10 @@ public class Evaluate {
                             stack.popOperator();
                         }
                         adaakar = false;
+                        if (angkaSebelumAkar) {
+                        	termNum.x *= stack.popNumber().solve();
+                        	angkaSebelumAkar = false;
+                        }
                         stack.push(termNum);
                     }
 
@@ -135,7 +140,7 @@ public class Evaluate {
                     prioBinaryExp = true;
                 } else if (curIdx =='-') {
                     // Invalid Operation : Expected a number after negative expression
-                    if (!isNumberCheck(input, i + 1)) {
+                    if (!isNumberCheck(input, i + 1) && input.charAt(i + 1) != 'V') {
                         throw new Exception("ERROR : Invalid Operation");
                     }
                     if (i == 0 || !(input.charAt(i - 1) >= '0' && input.charAt(i - 1) <= '9')) {
@@ -165,6 +170,9 @@ public class Evaluate {
                     if (!isNumberCheck(input, i + 1) && input.charAt(i + 1) != 'V') {
                         System.out.println("Error akar. Char at " + i + " + 1 : " + input.charAt(i + 1));
                         throw new Exception("ERROR : Invalid Operation");
+                    }
+                    if (isNumberCheck(input, i - 1)) {
+                    	angkaSebelumAkar = true;
                     }
                     adaakar = true;
                     unaryExp = true;
@@ -205,12 +213,12 @@ public class Evaluate {
     }
 
     public static void main(String[] args) {
-        Evaluate stack = new Evaluate();
-        String str = "V2.56";
+        Evaluate calculate = new Evaluate();
+        String str = "2*-2V2";
         String hasilString = "";
         
         try {
-            hasilString = stack.calculate(str);
+            hasilString = calculate.calculate(str);
             double hasilDouble = Double.parseDouble(hasilString);
             long hasilLong = (long)hasilDouble;
             if (hasilDouble == hasilLong) {
