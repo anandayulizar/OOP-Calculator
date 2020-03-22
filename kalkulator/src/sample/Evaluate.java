@@ -126,6 +126,9 @@ public class Evaluate {
                         stack.push(operate(operator));
                     } else if (lastOp == '/') {
                         TerminalExpression b = stack.popNumber();
+                        if (b.solve() == 0) {
+                            throw new Exception("ERROR : Cannot divide by zero");
+                        }
                         operator = new DivideExpression(stack.popNumber(), b);
                         stack.push(operate(operator));
                     }

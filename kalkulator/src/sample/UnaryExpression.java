@@ -1,6 +1,6 @@
 package sample;
 
-abstract class UnaryExpression extends Expression {
+abstract public class UnaryExpression extends Expression {
     protected Expression x;
 
     public UnaryExpression(Expression x) {
