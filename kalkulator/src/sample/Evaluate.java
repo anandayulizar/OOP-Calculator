@@ -1,10 +1,10 @@
 package sample;
 
 public class Evaluate {
-	private CalculatorStack stack;
+	private CalculatorStack<TerminalExpression> stack;
 
 	public Evaluate() {
-		stack = new CalculatorStack();
+		stack = new CalculatorStack<TerminalExpression>();
 	}
 
 	public boolean isNumberCheck(String input, int idx) {
