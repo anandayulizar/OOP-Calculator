@@ -117,19 +117,14 @@ public class Controller {
     void onClickMC(ActionEvent event) {
         System.out.println("Tombol MC dipencet");
         currentText = displayText.getText();
+        System.out.println("CurrentText = " + currentText);
         if (currentText == ""){
-            // do nothing
             System.out.println("Layar kosong");
         } else {
-            if (mcString.contains("+") || mcString.contains("-") || mcString.contains("*")
-                    || mcString.contains("/") || mcString.contains("V"))        {
-                // throw exception
-                System.out.println("String bukan sebuah value");
-            } else {
-                mcString = currentText;
-                memory.add(mcString);
-                displayText.setText(mcString);
-                currentText = "";
+            onClickResult(event);
+            char firstChar = displayText.getText().charAt(0);
+            if (firstChar >= '0' && firstChar <= '9') {
+                memory.add(displayText.getText());
             }
         }
         isEqualButtonBefore = false;
@@ -150,7 +145,7 @@ public class Controller {
                 displayText.setText(displayText.getText() + pop);
             }
         } else {
-            System.out.println("Queue kosong");
+            displayText.setText("Queue kosong");
         }
         isEqualButtonBefore = false;
         isMCButtonBefore = false;
