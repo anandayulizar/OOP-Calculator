@@ -17,7 +17,6 @@ public class EvaluateTest {
     public void isNumberCheck() {
         System.out.println("~~~~ Evaluate:isNumberCheck() test " + CalculatorStackTest.testCount);
         String inputText = "1234567890*/-+abcd";
-
         assertEquals(eval.isNumberCheck(inputText, 0), true);
         assertEquals(eval.isNumberCheck(inputText, 2), true);
         assertEquals(eval.isNumberCheck(inputText, 10), false);
@@ -104,6 +103,13 @@ public class EvaluateTest {
             input = "7+V4+V16";
             result = eval.calculate(input);
             assertEquals(result.equals("13.0"), true);
+
+            // Floating point number
+            System.out.println("Floating point");
+            input = "5.2*10*1.5";
+            result = eval.calculate(input);
+            System.out.println(result);
+            assertEquals(result.equals("78.0"), true);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -160,7 +166,16 @@ public class EvaluateTest {
             input = "3+4++++";
             result = eval.calculate(input);
         } catch (Exception e) {
-            assertEquals(e.getMessage().equals("ERROR : Expected a terminal expression"), true);
+            System.out.println(e.getMessage());
+            assertEquals(e.getMessage().equals("ERROR : Expected a number"), true);
+        }
+
+        // Floating point error
+        try {
+            input = "3.3.3.3";
+            result = eval.calculate(input);
+        } catch (Exception e) {
+            assertEquals(e.getMessage().equals("ERROR : Expected a number"), true);
         }
     }
 }

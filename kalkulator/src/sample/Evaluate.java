@@ -41,7 +41,7 @@ public class Evaluate {
 
                 if (titik) {
                     if (i + 1 < input.length() && input.charAt(i) == '.') {
-                        throw new Exception("ERROR : Expected a Number");
+                        throw new Exception("ERROR : Expected a number");
                     }
                     TerminalExpression cur = stack.popNumber();
                     double num2 = num;
@@ -187,7 +187,7 @@ public class Evaluate {
         while (!stack.isOpEmpty()) {
             // Empty Stack : Expected a terminal expression to be operated
             if (stack.numSize() < 2) {
-                throw new Exception("ERROR : Expected a terminal expression");
+                throw new Exception("ERROR : Expected a number");
             }
             TerminalExpression a = stack.popNumber();
             TerminalExpression b = stack.popNumber();
@@ -203,23 +203,5 @@ public class Evaluate {
 
         double temp = stack.popNumber().solve();
         return Double.toString(temp);
-    }
-
-    public static void main(String[] args) {
-        Evaluate calculate = new Evaluate();
-        String str = "1.1.1";
-        String hasilString = "";
-        
-        try {
-            hasilString = calculate.calculate(str);
-            double hasilDouble = Double.parseDouble(hasilString);
-            long hasilLong = (long)hasilDouble;
-            if (hasilDouble == hasilLong) {
-                hasilString = Long.toString(hasilLong);
-            }
-        } catch (Exception e) {
-            hasilString = e.getMessage();
-        }
-        System.out.println(hasilString);
     }
 }
