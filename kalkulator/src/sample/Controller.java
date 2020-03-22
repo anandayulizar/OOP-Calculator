@@ -44,6 +44,14 @@ public class Controller {
     private TextField displayText; // Value injected by FXMLLoader
 
     // METHODS
+    public String getDisplayText() {
+        return displayText.getText();
+    }
+
+    public void setDisplayText(String input) {
+        displayText.setText(input);
+    }
+
     @FXML
     void onClickExpression(ActionEvent event) {
         System.out.println("Tombol " + ((Button)event.getSource()).getText() + " dipencet");
