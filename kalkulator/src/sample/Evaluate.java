@@ -135,9 +135,13 @@ public class Evaluate {
                     if (!isNumberCheck(input, i + 1) && input.charAt(i + 1) != 'V') {
                         throw new Exception("ERROR : Invalid Operation");
                     }
-                    if (i == 0 || !(input.charAt(i - 1) >= '0' && input.charAt(i - 1) <= '9')) {
-                        unaryExp = true;
-                        negative = true;
+
+                    unaryExp = true;
+                    negative = true;
+                    if (i == 0 || (i - 1 > 0 && !isNumberCheck(input, i-1))) {
+                        // 
+                    } else {
+                        stack.push('+');
                     }
                 } else if (curIdx =='(') {
                     kurungCount++;
@@ -197,6 +201,7 @@ public class Evaluate {
             }
             TerminalExpression a = stack.popNumber();
             TerminalExpression b = stack.popNumber();
+            System.out.println(b.solve() + " operasi " + a.solve());
             char operator = stack.popOperator();
             BinaryExpression operation;
             if (operator == '+') {
@@ -214,7 +219,7 @@ public class Evaluate {
 
     public static void main(String[] args) {
         Evaluate calculate = new Evaluate();
-        String str = "4*5";
+        String str = "2.5*-2+-2";
         String hasilString = "";
         
         try {
