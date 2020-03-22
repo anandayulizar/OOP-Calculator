@@ -42,6 +42,9 @@ public class Evaluate {
                 TerminalExpression termNum = new TerminalExpression(num);
 
                 if (titik) {
+                    if (i + 1 < input.length() && input.charAt(i) == '.') {
+                        throw new Exception("ERROR : Expected a Number");
+                    }
                     //System.out.println("ini i "+i);
                     //i-=1;
                     //System.out.println("masuk1");
@@ -218,7 +221,7 @@ public class Evaluate {
 
     public static void main(String[] args) {
         Evaluate calculate = new Evaluate();
-        String str = "2.5*-2+-2";
+        String str = "1.1";
         String hasilString = "";
         
         try {
