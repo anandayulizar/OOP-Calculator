@@ -87,7 +87,7 @@ public class Controller {
     // Bila tidak beri pesan eror
     void onClickResult(ActionEvent event) {
         // display the result of calculation
-        CalculatorStack stack = new CalculatorStack();
+        Evaluate stack = new Evaluate();
         String str = displayText.getText();
         String hasilString = "";
         if (!isEqualButtonBefore) {
