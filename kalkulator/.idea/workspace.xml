@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="More exceptions">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Refactor Expression">
+      <change afterPath="$PROJECT_DIR$/src/sample/AddExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/BinaryExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/DivideExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/MultiplyExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/NegativeExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/SquareRootExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/SubtractExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/TerminalExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/UnaryExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/CalculatorStackTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kalkulator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kalkulator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/AddExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/AddExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/BinaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/BinaryExpression.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/CalculatorStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/CalculatorStack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/DivideExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/DivideExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/Expression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/Expression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/MultiplyExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/MultiplyExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/NegativeExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/NegativeExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/SubtractExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/SubtractExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/TerminalExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/TerminalExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/UnaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/UnaryExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/CalculatorStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CalculatorStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Expression.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +77,14 @@
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -67,7 +96,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1ZDCbosH81sdpTcAog86orVjEKh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -86,6 +117,8 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="/snap/intellij-idea-community/current/lib/hamcrest-core-1.3.jar!/" />
@@ -96,11 +129,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="test" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CalculatorStackTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -148,6 +187,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CalculatorStackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="kalkulator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.CalculatorStackTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -179,6 +237,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CalculatorStackTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -227,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584865740939</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Renewed CalculatorStack calculate call">
+      <created>1584869308975</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584869308975</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -242,7 +312,9 @@
     <MESSAGE value="Backspace, try catch execute layer" />
     <MESSAGE value="A few exceptions" />
     <MESSAGE value="More exceptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="More exceptions" />
+    <MESSAGE value="Renewed CalculatorStack calculate call" />
+    <MESSAGE value="Refactor Expression" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor Expression" />
   </component>
   <component name="WindowStateProjectService">
     <state x="198" y="32" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584762686675">
@@ -250,10 +322,10 @@
     </state>
     <state x="141" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.686@0.27.1366.686" timestamp="1584364454487" />
     <state x="198" y="32" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584762686675" />
-    <state x="623" y="281" width="655" height="547" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1584867317125">
+    <state x="623" y="281" width="655" height="547" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1584869999298">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="623" y="281" width="655" height="547" key="#com.intellij.ide.util.PackageChooserDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584867317125" />
+    <state x="623" y="281" width="655" height="547" key="#com.intellij.ide.util.PackageChooserDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584869999298" />
     <state x="697" y="271" width="330" height="565" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1584867037062">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -262,10 +334,10 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="540" y="255" width="655" height="598" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584867040347" />
-    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2" timestamp="1584865740524">
+    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2" timestamp="1584881046321">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1584865740524" />
+    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1584881046321" />
     <state x="229" y="96" width="1452" height="922" key="CommitChangelistDialog2/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782920051" />
     <state x="429" y="162" width="739" height="598" key="FileChooserDialogImpl" timestamp="1584867031121">
       <screen x="0" y="30" width="1920" height="1050" />
@@ -273,29 +345,29 @@
     <state x="305" y="113" width="735" height="513" key="FileChooserDialogImpl/0.27.1366.686@0.27.1366.686" timestamp="1584364389368" />
     <state x="429" y="162" width="739" height="598" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1584867031121" />
     <state x="429" y="164" key="FileChooserDialogImpl/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584762485245" />
-    <state width="1864" height="113" key="GridCell.Tab.0.bottom" timestamp="1584867099152">
+    <state width="1864" height="227" key="GridCell.Tab.0.bottom" timestamp="1584873847756">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.bottom/0.27.1366.686@0.27.1366.686" timestamp="1584758941471" />
-    <state width="1864" height="113" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1584867099152" />
+    <state width="1864" height="227" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1584873847756" />
     <state width="1864" height="113" key="GridCell.Tab.0.bottom/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
-    <state width="1864" height="113" key="GridCell.Tab.0.center" timestamp="1584867099147">
+    <state width="1864" height="227" key="GridCell.Tab.0.center" timestamp="1584873847756">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.center/0.27.1366.686@0.27.1366.686" timestamp="1584758941469" />
-    <state width="1864" height="113" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1584867099147" />
+    <state width="1864" height="227" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1584873847756" />
     <state width="1864" height="113" key="GridCell.Tab.0.center/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
-    <state width="1864" height="113" key="GridCell.Tab.0.left" timestamp="1584867099143">
+    <state width="1864" height="227" key="GridCell.Tab.0.left" timestamp="1584873847756">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.left/0.27.1366.686@0.27.1366.686" timestamp="1584758941468" />
-    <state width="1864" height="113" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1584867099143" />
+    <state width="1864" height="227" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1584873847756" />
     <state width="1864" height="113" key="GridCell.Tab.0.left/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
-    <state width="1864" height="113" key="GridCell.Tab.0.right" timestamp="1584867099151">
+    <state width="1864" height="227" key="GridCell.Tab.0.right" timestamp="1584873847756">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.right/0.27.1366.686@0.27.1366.686" timestamp="1584758941470" />
-    <state width="1864" height="113" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1584867099151" />
+    <state width="1864" height="227" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1584873847756" />
     <state width="1864" height="113" key="GridCell.Tab.0.right/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
     <state width="1864" height="327" key="GridCell.Tab.1.bottom" timestamp="1584766811377">
       <screen x="0" y="32" width="1920" height="1050" />
@@ -329,10 +401,10 @@
     <state x="166" y="27" width="1024" height="686" key="SettingsEditor/0.27.1366.686@0.27.1366.686" timestamp="1584366924849" />
     <state x="315" y="30" width="1280" height="1049" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1584868722963" />
     <state x="233" y="32" width="1280" height="1049" key="SettingsEditor/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584762488863" />
-    <state x="770" y="455" width="369" height="199" key="VCS.ChangelistChooser" timestamp="1584865745118">
+    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser" timestamp="1584869312930">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="770" y="455" key="VCS.ChangelistChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1584865745118" />
+    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1584869312930" />
     <state x="770" y="457" width="369" height="199" key="VCS.ChangelistChooser/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782928364" />
     <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1584865749503">
       <screen x="0" y="30" width="1920" height="1050" />
@@ -348,10 +420,10 @@
     </state>
     <state x="720" y="457" width="479" height="195" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.30.1920.1050@0.30.1920.1050" timestamp="1584868729042" />
     <state x="720" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584780250717" />
-    <state x="466" y="215" width="452" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1584867706165">
+    <state x="1180" y="271" width="452" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1584870049906">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="466" y="215" width="452" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584867706165" />
+    <state x="1180" y="271" width="452" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584870049906" />
     <state x="164" y="91" width="1581" height="928" key="new project wizard" timestamp="1584867214743">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>

@@ -1,7 +1,7 @@
 package sample;
 import java.util.Stack;
 
-class CalculatorStack {
+public class CalculatorStack {
     // numStack consists of numbers
     private Stack<TerminalExpression> numStack;
     // opStack consists of expressions
