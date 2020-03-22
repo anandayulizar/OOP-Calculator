@@ -466,11 +466,15 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="540" y="255" width="655" height="598" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584867040347" />
-    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2" timestamp="1584900896827">
+    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2" timestamp="1584904133950">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1584900896827" />
+    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1584904133950" />
     <state x="229" y="96" width="1452" height="922" key="CommitChangelistDialog2/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782920051" />
+    <state x="182" y="120" width="1536" height="870" key="DiffContextDialog" timestamp="1584904162793">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="182" y="120" width="1536" height="870" key="DiffContextDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584904162793" />
     <state x="429" y="162" width="739" height="598" key="FileChooserDialogImpl" timestamp="1584902826856">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -533,15 +537,15 @@
     <state x="166" y="27" width="1024" height="686" key="SettingsEditor/0.27.1366.686@0.27.1366.686" timestamp="1584366924849" />
     <state x="315" y="30" width="1280" height="1049" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1584902841352" />
     <state x="233" y="32" width="1280" height="1049" key="SettingsEditor/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584762488863" />
-    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser" timestamp="1584897862573">
+    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser" timestamp="1584904137470">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1584897862573" />
+    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1584904137470" />
     <state x="770" y="457" width="369" height="199" key="VCS.ChangelistChooser/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782928364" />
-    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1584900904115">
+    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1584904163735">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1584900904115" />
+    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1584904163735" />
     <state x="455" y="230" width="1000" height="654" key="Vcs.Push.Dialog.v2/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782978380" />
     <state x="339" y="196" key="com.intellij.ide.util.TipDialog" timestamp="1584757933270">
       <screen x="0" y="27" width="1366" height="686" />
