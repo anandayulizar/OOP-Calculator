@@ -11,7 +11,6 @@ public class Evaluate {
         return input.charAt(idx) >= '0' && input.charAt(idx) <= '9';
     }
 
-
     public TerminalExpression operate(Expression op) {
         // Calculate for expressions
         TerminalExpression retValue = new TerminalExpression(op.solve());
@@ -30,7 +29,6 @@ public class Evaluate {
         boolean angkaSebelumAkar = false;
         while (i < input.length()) {
             char curIdx = input.charAt(i);
-            System.out.println(curIdx);
 
             // If curIdx is a number
             if (curIdx >= '0' && curIdx <= '9') {
@@ -42,11 +40,7 @@ public class Evaluate {
                 TerminalExpression termNum = new TerminalExpression(num);
 
                 if (titik) {
-                    //System.out.println("ini i "+i);
-                    //i-=1;
-                    //System.out.println("masuk1");
                     TerminalExpression cur = stack.popNumber();
-//                    System.out.println(cur.solve());
                     double num2 = num;
                     int panjang=1;
                     // baca angka dibelakang koma
@@ -54,12 +48,9 @@ public class Evaluate {
                         num2/=10;
                         panjang++;
                     }
-//                    System.out.println(num2);
-                    //System.out.println("ini panjang " + panjang);
                     double blkgkoma = Math.pow(10,panjang);
                     double koma = cur.solve() + num/blkgkoma;
                     TerminalExpression hasil = new TerminalExpression(koma);
-//                    System.out.println("ini hasil" + hasil.solve());
                     stack.push(hasil);
                     // stack.popOperator();
                     titik = false;
@@ -103,10 +94,9 @@ public class Evaluate {
                 }
 
                 if (prioBinaryExp) {
-                    System.out.println("prioBinaryExp ! i : " + i);
                     char lastOp = stack.popOperator();
                     if (lastOp != '*' && lastOp != '/') {
-                        throw new Exception("ERROR : Operator Overload");
+                        throw new Exception("ERROR : Operator overload");
                     }
                     BinaryExpression operator;
                     if (lastOp == '*') {
@@ -132,7 +122,7 @@ public class Evaluate {
                 } else if (curIdx =='-') {
                     // Invalid Operation : Expected a number after negative expression
                     if (!isNumberCheck(input, i + 1) && input.charAt(i + 1) != 'V') {
-                        throw new Exception("ERROR : Invalid Operation");
+                        throw new Exception("ERROR : Expected a number after operation");
                     }
 
                     unaryExp = true;
@@ -164,12 +154,10 @@ public class Evaluate {
                         operator = stack.popOperator();
                         kurungCount--;
                     }
-                    
                 } else if(curIdx == 'V') {
                     // Invalid Operation : Expected a number at the end of root operation.
                     if (!isNumberCheck(input, i + 1) && input.charAt(i + 1) != 'V') {
-                        System.out.println("Error akar. Char at " + i + " + 1 : " + input.charAt(i + 1));
-                        throw new Exception("ERROR : Invalid Operation");
+                        throw new Exception("ERROR : Expected a number at the end of root");
                     }
                     if (isNumberCheck(input, i - 1)) {
                     	angkaSebelumAkar = true;
@@ -196,11 +184,10 @@ public class Evaluate {
         while (!stack.isOpEmpty()) {
             // Empty Stack : Expected a terminal expression to be operated
             if (stack.numSize() < 2) {
-                throw new Exception("ERROR : Operator Overload");
+                throw new Exception("ERROR : Expected a terminal expression");
             }
             TerminalExpression a = stack.popNumber();
             TerminalExpression b = stack.popNumber();
-            System.out.println(b.solve() + " operasi " + a.solve());
             char operator = stack.popOperator();
             BinaryExpression operation;
             if (operator == '+') {
@@ -212,7 +199,6 @@ public class Evaluate {
         }
 
         double temp = stack.popNumber().solve();
-        System.out.println("Solve : " + temp);
         return Double.toString(temp);
     }
 
