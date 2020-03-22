@@ -14,7 +14,6 @@ public class Evaluate {
 
     public TerminalExpression operate(Expression op) {
         // Calculate for expressions
-
         TerminalExpression retValue = new TerminalExpression(op.solve());
         return retValue;
     }
@@ -233,5 +232,5 @@ public class Evaluate {
             hasilString = e.getMessage();
         }
         System.out.println(hasilString);
-    } 
+    }
 }

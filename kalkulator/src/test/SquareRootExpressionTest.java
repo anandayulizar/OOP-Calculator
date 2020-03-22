@@ -11,9 +11,9 @@ public class SquareRootExpressionTest {
     @Test
     public void solve() {
         System.out.println("~~~~ SquareRootExpression:solve() test " + CalculatorStackTest.testCount);
-        TerminalExpression a = new TerminalExpression(10);
+        TerminalExpression a = new TerminalExpression(16);
         SquareRootExpression neg = new SquareRootExpression(a);
-        assertEquals(neg.solve(), -10, 0.001);
+        assertEquals(neg.solve(), 4, 0.001);
 
         System.out.println("~~~~ SquareRootExpression:solve() test " + CalculatorStackTest.testCount);
         TerminalExpression b = new TerminalExpression(0);
