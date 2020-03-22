@@ -106,21 +106,10 @@ public class Evaluate {
                 if (prioBinaryExp) {
                     System.out.println("prioBinaryExp ! i : " + i);
                     char lastOp = stack.popOperator();
+                    if (lastOp != '*' || lastOp != '/') {
+                        throw new Exception("ERROR : Operator Overload");
+                    }
                     BinaryExpression operator;
-//                  Invalid Operation: Expected a number, not an operator.
-//                    if (i < input.length() - 1) {
-//                        if (!isNumberCheck(input, i) && input.charAt(i) != '-' && input.charAt(i) != 'V') {
-//                            System.out.println("Error setelah kali / bagi. Char di i : " + input.charAt(i));
-//                            throw new Exception("ERROR : Invalid Operation");
-//                        }
-//                    }
-//                    if (i > 1) {
-//                        if (!isNumberCheck(input, i - 2)) {
-//                            System.out.println("Error sebelum kali / bagi. Char di " + i + " - 2 : " + input.charAt(i - 2));
-//                            System.out.println(input.charAt(i - 2));
-//                            throw new Exception("ERROR : Invalid Operation");
-//                        }
-//                    }
                     if (lastOp == '*') {
                         operator = new MultiplyExpression(stack.popNumber(), stack.popNumber());
                         stack.push(operate(operator));
@@ -151,20 +140,25 @@ public class Evaluate {
                     kurungCount++;
                 } else if (curIdx ==')') {
                     char operator;
-                    while (stack.opPeek() != '(') {
-                        TerminalExpression a = stack.popNumber();
-                        TerminalExpression b = stack.popNumber();
-                        operator = stack.popOperator();
-                        BinaryExpression operation;
-                        if (operator == '+') {
-                            operation = new AddExpression(b, a);
-                        } else {
-                            operation = new SubtractExpression(b, a);
+                    if (kurungCount == 0) {
+                        throw new Exception("ERROR : Missing parentheses");
+                    } else {
+                        while (stack.opPeek() != '(') {
+                            TerminalExpression a = stack.popNumber();
+                            TerminalExpression b = stack.popNumber();
+                            operator = stack.popOperator();
+                            BinaryExpression operation;
+                            if (operator == '+') {
+                                operation = new AddExpression(b, a);
+                            } else {
+                                operation = new SubtractExpression(b, a);
+                            }
+                            stack.push(operate(operation));
                         }
-                        stack.push(operate(operation));
+                        operator = stack.popOperator();
+                        kurungCount--;
                     }
-                    operator = stack.popOperator();
-                    kurungCount--;
+                    
                 } else if(curIdx == 'V') {
                     // Invalid Operation : Expected a number at the end of root operation.
                     if (!isNumberCheck(input, i + 1) && input.charAt(i + 1) != 'V') {
@@ -188,12 +182,15 @@ public class Evaluate {
 
         // Butuh exception klo kurungCount > 0, brarti belom nemu kurungTutup
         // jadinya error
+        if (kurungCount > 0) {
+            throw new Exception("ERROR : Missing parentheses");
+        }
 
         // Empty the stack until there's no + or - left
         while (!stack.isOpEmpty()) {
             // Empty Stack : Expected a terminal expression to be operated
             if (stack.numSize() < 2) {
-                throw new Exception("ERROR : Empty Stack");
+                throw new Exception("ERROR : Operator Overload");
             }
             TerminalExpression a = stack.popNumber();
             TerminalExpression b = stack.popNumber();
@@ -214,7 +211,7 @@ public class Evaluate {
 
     public static void main(String[] args) {
         Evaluate calculate = new Evaluate();
-        String str = "2*-2V2";
+        String str = "2.35(";
         String hasilString = "";
         
         try {
