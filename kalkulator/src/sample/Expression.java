@@ -1,4 +1,4 @@
-// package sample;
+package sample;
 
 abstract class Expression {
   abstract public double solve();
