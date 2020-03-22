@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 
 public class Controller {
     private String ansString, currentText,mcString;
-    private boolean isEqualButtonBefore;
+    private boolean isEqualButtonBefore, isMCButtonBefore;
     private Queue<String> memory;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -48,37 +48,43 @@ public class Controller {
     void onClickExpression(ActionEvent event) {
         String value = ((Button)event.getSource()).getText();
         System.out.println(value.equals("<-"));
-        if (isEqualButtonBefore) {
+        if (isEqualButtonBefore || isMCButtonBefore) {
             if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                System.out.println("Ini 1");
                 displayText.setText("");
             }
         }
         if (value.equals("<-")) {
             if (displayText.getText().length() > 0) {
+                System.out.println("Ini 2");
                 displayText.setText(displayText.getText().substring(0, displayText.getText().length() - 1));
             } else {
+                System.out.println("Ini 3");
                 displayText.setText("0");
             }
         } else {
             if (displayText.getText().equals("0")) {
                 if (value.charAt(0) >= '0' && value.charAt(0) <= '9') {
+                    System.out.println("Ini 4");
                     displayText.setText(value);
                 } else {
+                    System.out.println("Ini 5");
                     displayText.setText(displayText.getText() + value);
                 }
             } else {
+                System.out.println("Ini 6");
                 displayText.setText(displayText.getText() + value);
             }
         }
         currentText += displayText.getText();
         isEqualButtonBefore = false;
-
+        isMCButtonBefore = false;
     }
     @FXML
-        // Melakukan perhitungan
-        // Perhitungan bisa valid atau tidak
-        // Bila valid tampilkan hasil kalkulasi, simpan hasil di antrian
-        // Bila tidak beri pesan eror
+    // Melakukan perhitungan
+    // Perhitungan bisa valid atau tidak
+    // Bila valid tampilkan hasil kalkulasi, simpan hasil di antrian
+    // Bila tidak beri pesan eror
     void onClickResult(ActionEvent event) {
         // display the result of calculation
         CalculatorStack stack = new CalculatorStack();
@@ -99,40 +105,48 @@ public class Controller {
             displayText.setText(hasilString);
             currentText = ""; // bila = dipencet maka currentText diset default
             isEqualButtonBefore = true;
+            isMCButtonBefore = false;
         }
     }
     @FXML
-        // Menyimpan nilai "saat ini" ke dalam history kalkulator
+    // Menyimpan nilai "saat ini" ke dalam history kalkulator
     void onClickMC(ActionEvent event) {
-        // yang dapat disimpan hanya angka
-        // bila bukan angka throw exception
+        currentText = displayText.getText();
         if (currentText == ""){
             // do nothing
+            System.out.println("Layar kosong");
         } else {
-            // asumsi currentText pasti value
-            // kalau currentString adalah sebuah value maka push
-            mcString = currentText;
-            // kalau tidak throw exception
-            // help
-            memory.add(mcString);
-            displayText.setText(mcString);
+            if (mcString.contains("+") || mcString.contains("-") || mcString.contains("*")
+            || mcString.contains("/") || mcString.contains("V"))        {
+                // throw exception
+                System.out.println("String bukan sebuah value");
+            } else {
+                mcString = currentText;
+                memory.add(mcString);
+                displayText.setText(mcString);
+                currentText = "";
+            }
         }
         isEqualButtonBefore = false;
+        isMCButtonBefore = true;
     }
     @FXML
-        // Menampilkan nilai yang disimpan ke layar
+    // Menampilkan nilai yang disimpan ke layar
     void onClickMR(ActionEvent event) {
         String pop;
-        // tampilkan kalau queue tidak kosong
         if (!memory.isEmpty()){
             pop = memory.remove();
             displayText.setText(pop);
+        } else {
+            // throw exception
+            displayText.setText("");
+            System.out.println("Queue kosong");
         }
-        // kalau queue kosong throw exception
         isEqualButtonBefore = false;
+        isMCButtonBefore = false;
     }
     @FXML
-        // Menuliskan hasil perhitungan sebelumnya di layar
+    // Menuliskan hasil perhitungan sebelumnya di layar
     void onClickAns(ActionEvent event) {
         if (currentText == ""){
             // bila sebelum ans dipencet layar kosong maka tampilkan nilai Ans
@@ -142,22 +156,25 @@ public class Controller {
             displayText.setText(displayText.getText() + ansString);
         }
         isEqualButtonBefore = false;
+        isMCButtonBefore = false;
     }
     @FXML
-        // Menghapus semua karakter di layar
-        // Menghapus semua histori perhitungan
+    // Menghapus semua karakter di layar
+    // Menghapus semua histori perhitungan
     void onClickCE(ActionEvent event) {
         // clear
         ansString = "";
         while (!memory.isEmpty()){
             memory.remove();
         }
-        if (memory.isEmpty()){
-            System.out.println("Queue kosong");
-        }
         displayText.setText("");
         displayText.getText();
         isEqualButtonBefore = false;
+        isMCButtonBefore = false;
+        if (memory.isEmpty()){
+            System.out.println("Queue kosong");
+        }
+        System.out.println("Histori perhitungan kosong");
     }
     @FXML
     void display(ActionEvent event) {
@@ -190,6 +207,7 @@ public class Controller {
         currentText = "";
         mcString = "";
         isEqualButtonBefore = false;
+        isMCButtonBefore = false;
         memory = new LinkedList<>();
         displayText.setText("");
     }
