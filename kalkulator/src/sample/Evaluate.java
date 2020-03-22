@@ -106,7 +106,7 @@ public class Evaluate {
                 if (prioBinaryExp) {
                     System.out.println("prioBinaryExp ! i : " + i);
                     char lastOp = stack.popOperator();
-                    if (lastOp != '*' || lastOp != '/') {
+                    if (lastOp != '*' && lastOp != '/') {
                         throw new Exception("ERROR : Operator Overload");
                     }
                     BinaryExpression operator;
@@ -214,7 +214,7 @@ public class Evaluate {
 
     public static void main(String[] args) {
         Evaluate calculate = new Evaluate();
-        String str = "2.35(";
+        String str = "4*5";
         String hasilString = "";
         
         try {
