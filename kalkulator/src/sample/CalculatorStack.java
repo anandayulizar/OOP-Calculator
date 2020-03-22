@@ -1,18 +1,18 @@
 package sample;
 import java.util.Stack;
 
-public class CalculatorStack {
+public class CalculatorStack<T> {
     // numStack consists of numbers
-    private Stack<TerminalExpression> numStack;
+    private Stack<T> numStack;
     // opStack consists of expressions
     private Stack<Character> opStack;
 
     public CalculatorStack() {
-        numStack = new Stack<TerminalExpression>();
+        numStack = new Stack<T>();
         opStack = new Stack<Character>();
     }
 
-    public void push(TerminalExpression num) {
+    public void push(T num) {
         numStack.push(num);
     }
 
@@ -20,7 +20,7 @@ public class CalculatorStack {
         opStack.push(op);
     }
 
-    public TerminalExpression popNumber() {
+    public T popNumber() {
         return numStack.pop();
     }
 
@@ -44,7 +44,7 @@ public class CalculatorStack {
         return opStack.size();
     }
 
-    public TerminalExpression numPeek() {
+    public T numPeek() {
         return numStack.peek();
     }
 
