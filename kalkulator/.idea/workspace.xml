@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="All expression tests">
-      <change afterPath="$PROJECT_DIR$/src/test/EvaluateTest.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Probably finalized testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/kalkulator/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/kalkulator/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Evaluate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Evaluate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/CalculatorStackTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CalculatorStackTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/SquareRootExpressionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SquareRootExpressionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +100,7 @@
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="/snap/intellij-idea-community/current/lib/hamcrest-core-1.3.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -113,8 +108,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="test" />
       <recent name="sample" />
+      <recent name="test" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="test" />
@@ -158,7 +153,7 @@
       <option name="VM_PARAMETERS" value="--module-path &quot;$USER_HOME$/Desktop/openjfx-14_linux-x64_bin-sdk/javafx-sdk-14/lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -178,7 +173,7 @@
       <module name="kalkulator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -193,16 +188,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CalculatorStackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EvaluateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kalkulator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CalculatorStackTest" />
+      <option name="MAIN_CLASS_NAME" value="test.EvaluateTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
@@ -212,18 +207,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CalculatorStackTest.push" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MultiplyExpressionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="kalkulator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.CalculatorStackTest" />
-      <option name="METHOD_NAME" value="push" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="test.MultiplyExpressionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -266,7 +260,7 @@
       <module name="kalkulator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -303,11 +297,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EvaluateTest" />
         <item itemvalue="JUnit.test in kalkulator" />
+        <item itemvalue="JUnit.MultiplyExpressionTest" />
         <item itemvalue="JUnit.SquareRootExpressionTest.solve" />
         <item itemvalue="JUnit.AddExpressionTest" />
-        <item itemvalue="JUnit.CalculatorStackTest" />
-        <item itemvalue="JUnit.CalculatorStackTest.push" />
       </list>
     </recent_temporary>
   </component>
@@ -386,7 +380,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584889798414</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="MC and evaluate">
+      <created>1584894056578</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1584894056578</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Probably finalized testing">
+      <created>1584897858913</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1584897858913</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -406,13 +414,16 @@
     <MESSAGE value="RAdded a few tests and divide by zero exception" />
     <MESSAGE value="Added a few tests and divide by zero exception" />
     <MESSAGE value="All expression tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="All expression tests" />
+    <MESSAGE value="MC and evaluate" />
+    <MESSAGE value="Probably finalized testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Probably finalized testing" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="198" y="32" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584762686675">
-      <screen x="0" y="32" width="1920" height="1050" />
+    <state x="198" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584900669618">
+      <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="141" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1366.686@0.27.1366.686" timestamp="1584364454487" />
+    <state x="198" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584900669618" />
     <state x="198" y="32" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584762686675" />
     <state x="623" y="281" width="655" height="547" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1584869999298">
       <screen x="0" y="30" width="1920" height="1050" />
@@ -430,40 +441,40 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="540" y="255" width="655" height="598" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584867040347" />
-    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2" timestamp="1584889809889">
+    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2" timestamp="1584897858363">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1584889809889" />
+    <state x="229" y="94" width="1434" height="921" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1584897858363" />
     <state x="229" y="96" width="1452" height="922" key="CommitChangelistDialog2/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782920051" />
-    <state x="429" y="162" width="739" height="598" key="FileChooserDialogImpl" timestamp="1584867031121">
+    <state x="429" y="162" width="739" height="598" key="FileChooserDialogImpl" timestamp="1584900885076">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="305" y="113" width="735" height="513" key="FileChooserDialogImpl/0.27.1366.686@0.27.1366.686" timestamp="1584364389368" />
-    <state x="429" y="162" width="739" height="598" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1584867031121" />
+    <state x="429" y="162" width="739" height="598" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1584900885076" />
     <state x="429" y="164" key="FileChooserDialogImpl/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584762485245" />
-    <state width="1864" height="198" key="GridCell.Tab.0.bottom" timestamp="1584894017684">
+    <state width="1864" height="139" key="GridCell.Tab.0.bottom" timestamp="1584897982257">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.bottom/0.27.1366.686@0.27.1366.686" timestamp="1584758941471" />
-    <state width="1864" height="198" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1584894017684" />
+    <state width="1864" height="139" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1584897982257" />
     <state width="1864" height="113" key="GridCell.Tab.0.bottom/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
-    <state width="1864" height="198" key="GridCell.Tab.0.center" timestamp="1584894017683">
+    <state width="1864" height="139" key="GridCell.Tab.0.center" timestamp="1584897982256">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.center/0.27.1366.686@0.27.1366.686" timestamp="1584758941469" />
-    <state width="1864" height="198" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1584894017683" />
+    <state width="1864" height="139" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1584897982256" />
     <state width="1864" height="113" key="GridCell.Tab.0.center/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
-    <state width="1864" height="198" key="GridCell.Tab.0.left" timestamp="1584894017683">
+    <state width="1864" height="139" key="GridCell.Tab.0.left" timestamp="1584897982255">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.left/0.27.1366.686@0.27.1366.686" timestamp="1584758941468" />
-    <state width="1864" height="198" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1584894017683" />
+    <state width="1864" height="139" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1584897982255" />
     <state width="1864" height="113" key="GridCell.Tab.0.left/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
-    <state width="1864" height="198" key="GridCell.Tab.0.right" timestamp="1584894017683">
+    <state width="1864" height="139" key="GridCell.Tab.0.right" timestamp="1584897982256">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="1320" height="14" key="GridCell.Tab.0.right/0.27.1366.686@0.27.1366.686" timestamp="1584758941470" />
-    <state width="1864" height="198" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1584894017683" />
+    <state width="1864" height="139" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1584897982256" />
     <state width="1864" height="113" key="GridCell.Tab.0.right/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584783133380" />
     <state width="1864" height="327" key="GridCell.Tab.1.bottom" timestamp="1584766811377">
       <screen x="0" y="32" width="1920" height="1050" />
@@ -491,35 +502,35 @@
     </state>
     <state x="604" y="207" width="702" height="696" key="MultipleFileMergeDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584891335028" />
     <state x="604" y="209" width="702" height="696" key="MultipleFileMergeDialog/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584769615555" />
-    <state x="315" y="30" width="1280" height="1049" key="SettingsEditor" timestamp="1584868722963">
+    <state x="315" y="30" width="1280" height="1049" key="SettingsEditor" timestamp="1584900886053">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="166" y="27" width="1024" height="686" key="SettingsEditor/0.27.1366.686@0.27.1366.686" timestamp="1584366924849" />
-    <state x="315" y="30" width="1280" height="1049" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1584868722963" />
+    <state x="315" y="30" width="1280" height="1049" key="SettingsEditor/0.30.1920.1050@0.30.1920.1050" timestamp="1584900886053" />
     <state x="233" y="32" width="1280" height="1049" key="SettingsEditor/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584762488863" />
-    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser" timestamp="1584889716673">
+    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser" timestamp="1584897862573">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1584889716673" />
+    <state x="770" y="455" width="392" height="199" key="VCS.ChangelistChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1584897862573" />
     <state x="770" y="457" width="369" height="199" key="VCS.ChangelistChooser/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782928364" />
-    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1584889812411">
+    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1584897865348">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1584889812411" />
+    <state x="455" y="228" width="1000" height="654" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1584897865348" />
     <state x="455" y="230" width="1000" height="654" key="Vcs.Push.Dialog.v2/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584782978380" />
     <state x="339" y="196" key="com.intellij.ide.util.TipDialog" timestamp="1584757933270">
       <screen x="0" y="27" width="1366" height="686" />
     </state>
     <state x="339" y="196" key="com.intellij.ide.util.TipDialog/0.27.1366.686@0.27.1366.686" timestamp="1584757933270" />
-    <state x="720" y="457" width="469" height="195" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584892945940">
+    <state x="720" y="457" width="479" height="195" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584896756114">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="720" y="457" width="469" height="195" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.30.1920.1050@0.30.1920.1050" timestamp="1584892945940" />
+    <state x="720" y="457" width="479" height="195" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.30.1920.1050@0.30.1920.1050" timestamp="1584896756114" />
     <state x="720" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.32.1920.1050/1920.0.1920.1080@0.32.1920.1050" timestamp="1584780250717" />
-    <state x="1180" y="271" width="452" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1584891256181">
+    <state x="1180" y="271" width="445" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1584898788971">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="1180" y="271" width="452" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584891256181" />
+    <state x="1180" y="271" width="445" height="672" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1584898788971" />
     <state x="164" y="91" width="1581" height="928" key="new project wizard" timestamp="1584867214743">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
